@@ -9,18 +9,20 @@
 
 require './script-autoloader.php';
 
+include './templates/header.php';
+
 if ( !isset($_GET['url']) || empty($_GET['url']) || !preg_match("/^http:\/\/mp.weixin.qq.com\/\S+$/", urldecode(@$_GET['url']) ) ) {
 	error('传入参数错误');
 }
 
-template('header');
-
 $r = fetchpage( urldecode(@$_GET['url']) );
 
 if ( empty($r) ) {
-	template('form', 'noresult');
+	include './templates/form.php';
+	include './templates/noresult.php';
 } else {
-	template('form', 'result');
+	include './templates/form.php';
+	include './templates/result.php';
 }
 
-template('footer');
+include './templates/footer.php';
