@@ -9,26 +9,6 @@
 
 
 /**
- *	包含模板文件
- *
- *	@return void
- *
- *	@note 参数数量可变动
- */
-
-function template() {
-	$args = func_get_args();
-	for ($a = 0; $a < count($args); $a++) {
-		if ( !file_exists('./templates/' . $args[$a] . '.php') ) {
-			print '<div class="alert alert-danger">模板文件: ' . $args[$a] . '.php 不存在！</div>';
-		} else {
-			include './templates/' . $args[$a] . '.php';
-		}
-	}
-}
-
-
-/**
  *	cURL获取微信公众号图文页面内嵌视频
  *
  *	@param string $url [微信公众号图文链接]
@@ -42,7 +22,6 @@ function fetchpage($url) {
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	$html = curl_exec($ch);
 	curl_close($ch);
 
@@ -67,5 +46,5 @@ function fetchpage($url) {
  */
 
 function error($msg) {
-	print '<div class="alert alert-danger"><span class="fa fa-times"> ' . $msg . '</div>';
+	print '<div class="alert alert-danger"><p><span class="fa fa-times"></span> ' . $msg . '</p><p><a href="./index.php">点此返回首页</a></p></div>';
 }
