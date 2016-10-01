@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Cache-Control" content="no-transform">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<title>微信图文内嵌视频地址获取器</title>
+		<link rel="stylesheet" href="./source/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./source/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./source/css/nprogress.min.css">
+		<link rel="stylesheet" href="./source/css/custom.css">
+		<!--[if lt IE 9]>
+			<script src="./source/js/html5shiv.min.js"></script>
+			<script src="./source/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<a class="navbar-brand" href="./index.html">微信图文内嵌视频地址获取器</a>
+		</nav>
+
+		<div class="container" id="pjax-container">
+			
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">输入图文页面地址 <small>( <a id="help-get-link" href="javascript:void(0);"><span class="fa fa-question-circle"></span> 不知道图文地址咋获取？)</a></small></h3>
+				</div>
+				<div class="panel-body">
+					<form id="mp-page-url-form" action="./fetch.php" method="GET">
+						<div class="col-md-10 col-sm-10"><p><input id="mp-page-url" name="url" type="url" class="form-control" placeholder="键入微信图文地址，系统将自动探查出视频地址..." required></p></div>
+						<div class="col-md-2 col-sm-2"><p><button id="mp-page-url-submit-btn" class="btn btn-success form-control" type="submit"><span class="fa fa-search"></span> 开始探查</button></p></div>
+					</form>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">探查结果</h3>
+				</div>
+				<div class="panel-body">
+					<table id="result" class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>视频URL</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>
+									<div class="input-group">
+										<input type="url" class="form-control" id="video-1" value="https://mp.weixin.qq.com/" readonly>
+										<span class="input-group-btn">
+											<button class="btn btn-default copy-to-clipboard" data-clipboard-target="#video-1" type="button"><span class="fa fa-clipboard"></span></button>
+										</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="alert alert-danger"><span class="fa fa-exclamation-circle"> 未探查到任何结果</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<p>&copy; 2016 CRH380A-2722.</p>
+		</div>
+
+		<div id="mask"></div>
+
+		<!-- Scripts -->
+		<script src="./source/js/jquery.min.js"></script>
+		<script src="./source/js/bootstrap.min.js"></script>
+		<script src="./source/js/jquery.pjax.min.js"></script>
+		<script src="./source/js/nprogress.min.js"></script>
+		<script src="./source/js/clipboard.min.js"></script>
+		<script src="./source/js/custom.js"></script>
+	</body>
+</html>
