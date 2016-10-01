@@ -13,7 +13,6 @@
 						<tbody>
 							<?php
 								$i = 1;
-								global $r;
 								foreach ($r as $url) {
 							?>
 							<tr>
