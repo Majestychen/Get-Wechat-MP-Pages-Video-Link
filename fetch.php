@@ -13,16 +13,18 @@ include './templates/header.php';
 
 if ( !isset($_GET['url']) || empty($_GET['url']) || !preg_match("/^http:\/\/mp.weixin.qq.com\/\S+$/", urldecode(@$_GET['url']) ) ) {
 	error('传入参数错误');
-}
-
-$r = fetchpage( urldecode(@$_GET['url']) );
-
-if ( empty($r) ) {
-	include './templates/form.php';
-	include './templates/noresult.php';
 } else {
-	include './templates/form.php';
-	include './templates/result.php';
+
+	$r = fetchpage( urldecode(@$_GET['url']) );
+
+	if ( empty($r) ) {
+		include './templates/form.php';
+		include './templates/noresult.php';
+	} else {
+		include './templates/form.php';
+		include './templates/result.php';
+	}
+
 }
 
 include './templates/footer.php';
