@@ -9,4 +9,8 @@
 
 require './script-autoloader.php';
 
-template('header', 'form', 'footer');
+include './templates/header.php';
+
+include './templates/form.php';
+
+include './templates/footer.php';
